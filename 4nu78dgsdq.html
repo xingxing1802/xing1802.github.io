@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>电话号码生成VCF - 杆塔就玩</title>
+    <link rel="canonical" href="">
+    <link href="static/css/foundation.min.css" rel="stylesheet">
+<link rel="stylesheet" href="static/css/common.css">
+<link rel="stylesheet" href="static/css/font_1455035_z0n3d6to6dc.css">    <style>
+#qrcode canvas{max-width:100%}
+</style>
+</head>
+<body>
+<header id="header">
+    <div class="grid-container fluid">
+        <div class="grid-x grid-margin-x">
+            <div class="cell large-3 small-6 logo">
+                <a href="index.html">
+                    <span>杆塔就玩</span>
+                </a>
+            </div>
+            <div class="cell large-9 small-6 main-nav-box hide-for-small-only">
+                <div class="date-box float-right" id="timeBox"></div>
+            </div>
+        </div>
+    </div>
+</header>
+<main class="theme" id="app">
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div class="cell large-12 small-12">
+                <nav class="breadcrumbs-wrapper" aria-label="你在这里:" role="导航" style="margin-top:15px;">
+                    <ul class="breadcrumbs">
+						<li><a href="index.html">首页</a></li>
+                        <li>
+                            <span class="show-for-sr">当前: </span>
+                            <h1>电话号码生成VCF</h1>
+                        </li>
+                    </ul>
+                </nav>
+                                    <div class="tool-collection">
+                        
+                    </div>
+                            </div>
+
+            <div class="cell large-9 small-12" id="toolWrapper" data-nosnippet="">
+                <div class="tool-wrapper">
+                    <div class="tool-box" v-cloak="">
+    <div class="grid-x grid-margin-x">
+        <div class="cell large-12 small-12">
+            <textarea rows="8" placeholder="18778300000 张三 (号码和姓名之间用空格或制表符分隔）" v-model="phoneStr"></textarea>
+        </div>
+        <div class="cell large-12 small-12">
+            <div class="btn-box">
+                <button class="button small " @click="convert">生成VCF文件</button>
+                <button class="button small " @click="showDemo" v-if="''==vcfStr">举个栗子</button>
+                <button class="button small " @click="downloadVcf" v-if="''!=vcfStr" v-cloak="">下载VCF文件</button>
+                <button class="button small secondary " @click="reset" v-if="''!=vcfStr" v-cloak="">清空列表</button>
+            </div>
+            <div v-if="''!=vcfStr && ''==downloadUrl" v-cloak="">
+                <hr>
+                <p style="color:red;">共计<b>{{telArr.length}}</b>项，请核对号码和姓名是否处理正确，确认无误即可下载VCF文件。</p>
+                <table class="text-left" style="max-width:460px">
+                    <thead>
+                    <tr>
+                        <th>号码</th>
+                        <th>姓名</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="item in telArr.slice(0,1000)">
+                        <th v-text="item.tel"></th>
+                        <th v-text="item.name"></th>
+                    </tr>
+                    <tr v-if="1000<telArr.length">
+                        <td class="text-center" colspan="2"><small>仅展示前1000项，全部请直接导出到VCF中</small></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="cell large-12" v-if="''==vcfStr">
+            <hr>
+            <p>
+                VCF是通讯录导出的一种格式，可以使用本工具批量将手机号码生成VCF文件，从而快速将手机号导入通讯录中。
+            </p>
+        </div>
+        
+    </div>
+</div>
+                                            <div class="tool-intro">
+                            <p>注意VCF请不要再电脑上直接打开，否则会不断地弹处通讯录信息页面，号码过多的话造成难以关闭的情况，如需查看内容可以使用文本文件软件打开。</p><p>本工具仅限合法营销用途使用，请勿用于其它任意非法用途。</p><h2>如何使用</h2><p>将号码和姓名列表粘贴到输入框中，格式为“号码 姓名”，号码和姓名之间使用空格或制表符连接，可以直接从Excel中复制这两列数据，也可以没有姓名，工具将会使用号码本身作为默认姓名。</p><p>粘贴号码后点击“生成VCF文件”按钮，工具将会生成VCF文件，同时给出前100条号码和姓名的预览效果，检查确认没有问题即可点击下载按钮下载VCF文件。</p><p>将VCF文件发送至手机后安卓手机使用“通讯录与拨号”程序打开即可导入手机通讯录中。</p>
+                                    </div>
+            </div>
+
+         
+        </div>
+    </div>
+</main>
+
+
+<script src="static/js/require.js"></script>
+<script src="static/js/common.min.js"></script>
+    <script src="static/js/ad.min.js"></script>
+<script src="./static/js/vcf.js?v=1628500681"></script>
+</body>
+</html>

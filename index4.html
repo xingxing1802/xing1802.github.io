@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>杆塔就玩</title>
+    <link rel="canonical" href="">
+    <link href="static/css/foundation.min.css" rel="stylesheet">
+<link rel="stylesheet" href="static/css/common.css">
+<link rel="stylesheet" href="static/css/font_1455035_z0n3d6to6dc.css">    </head>
+<body>
+<header id="header">
+    <div class="grid-container fluid">
+        <div class="grid-x grid-margin-x">
+            <div class="cell large-3 small-6 logo">
+                <a href="index.html">
+                    <span>杆塔就玩</span>
+                </a>
+            </div>
+            <div class="cell large-9 small-6 main-nav-box hide-for-small-only">
+                <div class="date-box float-right" id="timeBox"></div>
+            </div>
+        </div>
+    </div>
+</header>
+<main class="theme" id="app">
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div class="cell large-12 small-12">
+                <nav class="breadcrumbs-wrapper" aria-label="你在这里:" role="导航" style="margin-top:15px;">
+                    <ul class="breadcrumbs">
+                        <li><a href="index.html">首页</a></li>
+                        <li>
+                            <span class="show-for-sr">当前: </span>
+                            <h1>手机号国际区号批量添加</h1>
+                        </li>
+                    </ul>
+                    
+                </nav>
+                                    <div class="tool-collection">
+                        <ul class="expanded1">
+                                                            <h1>手机号国际区号批量添加</h1>
+                                                    </ul>
+                    </div>
+                            </div>
+
+            <div class="cell large-9 small-12" id="toolWrapper" data-nosnippet="">
+                <div class="tool-wrapper">
+                    <div class="tool-box">
+    <div>
+        <label for="">国际区号
+            <input type="text" placeholder="如+86-" v-model="areaCode">
+        </label>
+        <textarea id="dataResource" rows="8" placeholder="请粘贴号码列表，每行一个" v-model="convertData"></textarea>
+    </div>
+
+    <div class="btn-box">
+        <button class="button small " @click="convert">批量添加区号</button>
+        <button class="button small js-copy" data-clipboard-target="#resultStr" v-if="''!=resultStr" v-cloak="">复制结果</button>
+        <button class="button small " @click="export2txt" v-if="''!=resultStr" v-cloak="">下载TXT</button>
+        <button class="button small" @click="showDemo" v-if="''==resultStr">举个栗子</button>
+        <button class="button small secondary" @click="reset" v-if="0!=dataArr.length" v-cloak="">清空</button>
+    </div>
+    <div class="result-box" v-if="0!=dataArr.length" v-cloak="">
+        <p>号码数量：<b v-text="dataArr.length"></b></p>
+        <textarea id="resultStr" rows="16" placeholder="号码结果..." :value="resultStr"></textarea>
+    </div>
+</div>                                            <div class="tool-intro">
+                            <h2>工具简介<br></h2><p>在线手机号码国际区号批量添加工具，可以批量为号码列表添加指定的国际区号，可以自定义国际区号的格式，处理完成后支持一键下载。</p><p>工具仅批量添加国际区号，区号部分您可以根据实际需求设置任何内容，工具也不会对号码仅需合法性校正及去重处理，如号码格式不合适，请处理后再使用本工具批量添加国际区号。</p></p><h2>如何使用</h2><p>填写需要添加的区号，如“+86-”等，粘贴手机号码列表后点击添加按钮后即可批量完成号码国际区号的添加。</p><p>批量完成国际区号添加后，可以一键复制或导出到TXT文件中。</p>                        </div>
+                                    </div>
+            </div>
+
+            
+        </div>
+    </div>
+</main>
+
+<!-- <div class="sidebar">
+    <ul>
+       
+        <li>
+            <i class="iconfont icon-gotop js-go-top" title="返回顶部"></i>
+        </li>
+    </ul>
+</div>
+-->
+
+
+
+
+<script src="static/js/require.js"></script>
+<script src="static/js/common.min.js"></script>
+    <script src="static/js/ad.min.js"></script>
+<script src="./static/js/phone-code.js?v=1641442639"></script>
+</body>
+</html>
